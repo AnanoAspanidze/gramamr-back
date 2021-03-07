@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Admin.Services\" />
+    <Folder Include="Account.Services\" />
+    <Folder Include="Helpers\" />
+    <Folder Include="Profiles\" />
+    <Folder Include="Shared.Services\" />
+    <Folder Include="Public.Services\" />
+  </ItemGroup>
+
+</Project>
