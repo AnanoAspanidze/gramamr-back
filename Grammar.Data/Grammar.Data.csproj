@@ -5,10 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Interfaces\Admin.Interfaces\" />
     <Folder Include="Interfaces\Shared.Interfaces\" />
     <Folder Include="Interfaces\Public.Interfaces\" />
-    <Folder Include="Models\Admin.Models\" />
     <Folder Include="Models\Public.Models\" />
     <Folder Include="Models\Shared.Models\" />
   </ItemGroup>

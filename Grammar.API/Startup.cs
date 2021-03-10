@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Grammar.Core.Admin.Services;
 using Grammar.Data.Entities;
+using Grammar.Data.Interfaces.Admin.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -12,6 +14,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
+using Newtonsoft.Json;
 
 namespace Grammar.API
 {
@@ -42,8 +46,25 @@ namespace Grammar.API
             //        });
             //});
 
+          
+
+            services.AddSwaggerGen(swagger =>
+            {
+                swagger.SwaggerDoc("v1", new OpenApiInfo { Title = "My API" });
+            });
+            services.AddSwaggerGenNewtonsoftSupport();
+
+            services.AddMvc().AddNewtonsoftJson(options =>
+            {
+                options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+                options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
+                options.SerializerSettings.ContractResolver = new Newtonsoft.Json.Serialization.DefaultContractResolver();
+            });
+
             services.AddDbContext<GrammarDbContext>(opts => opts
-            .UseSqlServer(Configuration["ConnectionString:GrammarDb"]));
+          .UseSqlServer(Configuration["ConnectionString:GrammarDb"]));
+
+            services.AddScoped<IAdminSubCategoriesServices, AdminSubCategoriesServices>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,6 +76,13 @@ namespace Grammar.API
             }
 
             app.UseCors("AllowAll");
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API");
+            });
+
 
             app.UseHttpsRedirection();
 

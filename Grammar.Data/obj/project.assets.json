@@ -6022,11 +6022,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Ika\\source\\repos\\Grammar.API\\Grammar.Data\\Grammar.Data.csproj",
+      "projectUniqueName": "C:\\Users\\Ika\\Documents\\GitHub\\gramamr-back\\Grammar.Data\\Grammar.Data.csproj",
       "projectName": "Grammar.Data",
-      "projectPath": "C:\\Users\\Ika\\source\\repos\\Grammar.API\\Grammar.Data\\Grammar.Data.csproj",
+      "projectPath": "C:\\Users\\Ika\\Documents\\GitHub\\gramamr-back\\Grammar.Data\\Grammar.Data.csproj",
       "packagesPath": "C:\\Users\\Ika\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Ika\\source\\repos\\Grammar.API\\Grammar.Data\\obj\\",
+      "outputPath": "C:\\Users\\Ika\\Documents\\GitHub\\gramamr-back\\Grammar.Data\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

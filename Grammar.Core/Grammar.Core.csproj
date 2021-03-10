@@ -5,12 +5,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Admin.Services\" />
     <Folder Include="Account.Services\" />
     <Folder Include="Helpers\" />
-    <Folder Include="Profiles\" />
     <Folder Include="Shared.Services\" />
     <Folder Include="Public.Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Grammar.Data\Grammar.Data.csproj" />
   </ItemGroup>
 
 </Project>

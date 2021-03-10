@@ -10,3 +10,15 @@ C:\Users\Ika\source\repos\Grammar.API\Grammar.Data\obj\Debug\netcoreapp3.1\Gramm
 C:\Users\Ika\source\repos\Grammar.API\Grammar.Data\obj\Debug\netcoreapp3.1\Grammar.Data.dll
 C:\Users\Ika\source\repos\Grammar.API\Grammar.Data\obj\Debug\netcoreapp3.1\Grammar.Data.pdb
 C:\Users\Ika\source\repos\Grammar.API\Grammar.Data\obj\Debug\netcoreapp3.1\Grammar.Data.genruntimeconfig.cache
+C:\Users\Ika\Documents\GitHub\gramamr-back\Grammar.Data\bin\Debug\netcoreapp3.1\Grammar.Data.deps.json
+C:\Users\Ika\Documents\GitHub\gramamr-back\Grammar.Data\bin\Debug\netcoreapp3.1\Grammar.Data.runtimeconfig.json
+C:\Users\Ika\Documents\GitHub\gramamr-back\Grammar.Data\bin\Debug\netcoreapp3.1\Grammar.Data.runtimeconfig.dev.json
+C:\Users\Ika\Documents\GitHub\gramamr-back\Grammar.Data\bin\Debug\netcoreapp3.1\Grammar.Data.dll
+C:\Users\Ika\Documents\GitHub\gramamr-back\Grammar.Data\bin\Debug\netcoreapp3.1\Grammar.Data.pdb
+C:\Users\Ika\Documents\GitHub\gramamr-back\Grammar.Data\obj\Debug\netcoreapp3.1\Grammar.Data.csprojAssemblyReference.cache
+C:\Users\Ika\Documents\GitHub\gramamr-back\Grammar.Data\obj\Debug\netcoreapp3.1\Grammar.Data.AssemblyInfoInputs.cache
+C:\Users\Ika\Documents\GitHub\gramamr-back\Grammar.Data\obj\Debug\netcoreapp3.1\Grammar.Data.AssemblyInfo.cs
+C:\Users\Ika\Documents\GitHub\gramamr-back\Grammar.Data\obj\Debug\netcoreapp3.1\Grammar.Data.csproj.CoreCompileInputs.cache
+C:\Users\Ika\Documents\GitHub\gramamr-back\Grammar.Data\obj\Debug\netcoreapp3.1\Grammar.Data.dll
+C:\Users\Ika\Documents\GitHub\gramamr-back\Grammar.Data\obj\Debug\netcoreapp3.1\Grammar.Data.pdb
+C:\Users\Ika\Documents\GitHub\gramamr-back\Grammar.Data\obj\Debug\netcoreapp3.1\Grammar.Data.genruntimeconfig.cache
