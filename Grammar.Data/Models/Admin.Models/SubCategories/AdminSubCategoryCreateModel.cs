@@ -6,6 +6,7 @@ namespace Grammar.Data.Models.Admin.Models.SubCategories
 {
     public class AdminSubCategoryCreateModel
     {
-
+        public string Name { get; set; }
+        public string Category { get; set; }
     }
 }

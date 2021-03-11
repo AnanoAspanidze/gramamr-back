@@ -4,12 +4,9 @@ using System.Text;
 
 namespace Grammar.Data.Models.Admin.Models.SubCategories
 {
-    public class AdminSubCategoryModel
+    public class AdminSubCategoryEditModel
     {
-        public int Id { get; set; }
         public string Name { get; set; }
-        public bool IsActive { get; set; }
         public string Category { get; set; }
-      
     }
 }
