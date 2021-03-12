@@ -65,6 +65,8 @@ namespace Grammar.API
           .UseSqlServer(Configuration["ConnectionString:GrammarDb"]));
 
             services.AddScoped<IAdminSubCategoriesServices, AdminSubCategoriesServices>();
+
+            services.AddScoped<IAdminCategoriesServices, AdminCategoriesServices>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -83,7 +85,6 @@ namespace Grammar.API
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API");
             });
 
-
             app.UseHttpsRedirection();
 
             app.UseRouting();
@@ -94,6 +95,8 @@ namespace Grammar.API
             {
                 endpoints.MapControllers();
             });
+
+
         }
     }
 }

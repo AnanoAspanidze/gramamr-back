@@ -31,17 +31,31 @@ namespace Grammar.Core.Profiles
         public MappingProfile()
         {
             #region SubCategories profiles
+
             CreateMap<SubCategories, AdminSubCategoryModel>()
                .ForMember(dto => dto.Category, opt => opt.MapFrom(x => x.Category.Name))
                .MaxDepth(1);
 
+
             CreateMap<Categories, AdminCategoryModel>()
+              .MaxDepth(1)
+              .ReverseMap();
+
+            CreateMap<AdminSubCategoryCreateModel, SubCategories>()
+           .MaxDepth(1)
+           .ReverseMap();
+
+            CreateMap<AdminSubCategoryEditModel, SubCategories>()
               .MaxDepth(1)
               .ReverseMap();
 
             CreateMap<Type, AdminTypeModel>()
              .MaxDepth(1)
              .ReverseMap();
+
+            CreateMap<Categories, AdminCategoryModel>()
+            .MaxDepth(1)
+            .ReverseMap();
             #endregion
         }
     }

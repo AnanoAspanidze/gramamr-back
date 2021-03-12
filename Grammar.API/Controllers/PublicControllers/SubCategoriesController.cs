@@ -19,7 +19,6 @@ namespace Grammar.API.Controllers
             _subCategoriesServices = subCategoriesServices;
         }
         // action for list of SubCategories
-        #region SubCategories
         [HttpGet]
         [Route("subcategories")]
         public async Task<IActionResult> GetSubCategoriesListAsync()
@@ -27,7 +26,7 @@ namespace Grammar.API.Controllers
             var model = await _subCategoriesServices.GetAllSubCategoriesAsync();
             if (model == null)
             {
-                return BadRequest("Categories is not found");
+                return BadRequest("საკითხები არ მოიძებნა");
             }
             return Ok(model);
         }
@@ -101,4 +100,3 @@ namespace Grammar.API.Controllers
         }
     }
 }
-#endregion

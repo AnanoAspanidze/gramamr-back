@@ -41,7 +41,7 @@ namespace Grammar.Core.Admin.Services
 
         public async Task<AdminSubCategoryModel> GetSubCategoryDetailsAsync(int id)
         {
-            var Subcategories = _context.SubCategories.FirstOrDefaultAsync(e => e.Id==id);
+            var Subcategories = await _context.SubCategories.FirstOrDefaultAsync(e => e.Id==id);
 
             var result = Mapping.Mapper.Map<AdminSubCategoryModel>(Subcategories);
 
