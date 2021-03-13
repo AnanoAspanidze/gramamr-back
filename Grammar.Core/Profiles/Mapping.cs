@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Grammar.Data.Entities;
 using Grammar.Data.Models.Admin.Models;
+using Grammar.Data.Models.Admin.Models.Exercises;
 using Grammar.Data.Models.Admin.Models.SubCategories;
 using System;
 using System.Collections.Generic;
@@ -30,16 +31,18 @@ namespace Grammar.Core.Profiles
     {
         public MappingProfile()
         {
-            #region SubCategories profiles
-
-            CreateMap<SubCategories, AdminSubCategoryModel>()
-               .ForMember(dto => dto.Category, opt => opt.MapFrom(x => x.Category.Name))
-               .MaxDepth(1);
-
-
+            #region Categories profiles
+       
             CreateMap<Categories, AdminCategoryModel>()
               .MaxDepth(1)
               .ReverseMap();
+
+            #endregion
+
+            #region SubCategories profiles
+            CreateMap<SubCategories, AdminSubCategoryModel>()
+               .ForMember(dto => dto.Category, opt => opt.MapFrom(x => x.Category.Name))
+               .MaxDepth(1);
 
             CreateMap<AdminSubCategoryCreateModel, SubCategories>()
            .MaxDepth(1)
@@ -57,6 +60,26 @@ namespace Grammar.Core.Profiles
             .MaxDepth(1)
             .ReverseMap();
             #endregion
+
+            #region Exercises profiles
+
+            CreateMap<Exercises, AdminExerciseModel>()              
+                .ForMember(dto => dto.Type, opt => opt.MapFrom(x => x.Type.Name))
+                .ForMember(dto => dto.SubCategory, opt => opt.MapFrom(x => x.SubCategory.Name))
+                .ForMember(dto => dto.Category, opt => opt.MapFrom(x => x.SubCategory.Category.Name))
+            .MaxDepth(1)
+            .ReverseMap();
+
+            #endregion
+
+            #region Types profiles
+
+            CreateMap<Types, AdminTypeModel>()
+              .MaxDepth(1)
+              .ReverseMap();
+
+            #endregion
+
         }
     }
   }

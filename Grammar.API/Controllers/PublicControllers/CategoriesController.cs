@@ -7,8 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Grammar.API.Controllers.PublicControllers
 {
-    
 
+    [Route("api/[controller]")]
+    [ApiController]
     public class CategoriesController : Controller
     {
         private readonly IAdminCategoriesServices _categoriesServices;

@@ -23,7 +23,7 @@ namespace Grammar.Data.Entities
         [Required]
         public bool IsActive { get; set; }
 
-        [Required]
+        //[Required]
         public DateTime Date { get; set; }
 
         [Required]
@@ -37,12 +37,13 @@ namespace Grammar.Data.Entities
 
         [ForeignKey("TypeId")]
         public virtual Types Type { get; set; }
-        public virtual ICollection<Questions> Questions { get; set; }
-
-        [Required]
+    
+        //[Required]
         public int UserId { get; set; }
 
         [ForeignKey("UserId")]
         public virtual Users User { get; set; }
+
+        public virtual ICollection<Questions> Questions { get; set; }
     }
 }

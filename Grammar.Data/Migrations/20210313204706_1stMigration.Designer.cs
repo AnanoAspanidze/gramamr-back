@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Grammar.Data.Migrations
 {
     [DbContext(typeof(GrammarDbContext))]
-    [Migration("20210307213140_2ndMigration")]
-    partial class _2ndMigration
+    [Migration("20210313204706_1stMigration")]
+    partial class _1stMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

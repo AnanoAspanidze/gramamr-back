@@ -56,8 +56,7 @@ namespace Grammar.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    IsActive = table.Column<bool>(type: "bit", nullable: false)
+                    Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -226,7 +225,9 @@ namespace Grammar.Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     UserId = table.Column<int>(type: "int", nullable: false),
                     QuestionId = table.Column<int>(type: "int", nullable: false),
-                    AnswerId = table.Column<int>(type: "int", nullable: false)
+                    AnswerId = table.Column<int>(type: "int", nullable: false),
+                    CategoryId = table.Column<int>(type: "int", nullable: false),
+                    SubCategoryId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -238,9 +239,21 @@ namespace Grammar.Data.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
+                        name: "FK_UsersAnswers_Categories_CategoryId",
+                        column: x => x.CategoryId,
+                        principalTable: "Categories",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
                         name: "FK_UsersAnswers_Questions_QuestionId",
                         column: x => x.QuestionId,
                         principalTable: "Questions",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_UsersAnswers_SubCategories_SubCategoryId",
+                        column: x => x.SubCategoryId,
+                        principalTable: "SubCategories",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
@@ -302,9 +315,19 @@ namespace Grammar.Data.Migrations
                 column: "AnswerId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_UsersAnswers_CategoryId",
+                table: "UsersAnswers",
+                column: "CategoryId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_UsersAnswers_QuestionId",
                 table: "UsersAnswers",
                 column: "QuestionId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UsersAnswers_SubCategoryId",
+                table: "UsersAnswers",
+                column: "SubCategoryId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_UsersAnswers_UserId",

@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Grammar.API.Controllers;
+using Grammar.API.Controllers.PublicControllers;
 using Grammar.Core.Admin.Services;
 using Grammar.Data.Entities;
 using Grammar.Data.Interfaces.Admin.Interfaces;
@@ -67,6 +69,10 @@ namespace Grammar.API
             services.AddScoped<IAdminSubCategoriesServices, AdminSubCategoriesServices>();
 
             services.AddScoped<IAdminCategoriesServices, AdminCategoriesServices>();
+
+            services.AddScoped<IAdminExercisesServices, AdminExercisesServices>();
+
+            services.AddScoped<IAdminTypesServices, AdminTypesServices>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
