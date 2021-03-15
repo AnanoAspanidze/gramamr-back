@@ -61,16 +61,6 @@ namespace Grammar.Core.Profiles
             .ReverseMap();
             #endregion
 
-            #region Exercises profiles
-
-            CreateMap<Exercises, AdminExerciseModel>()              
-                .ForMember(dto => dto.Type, opt => opt.MapFrom(x => x.Type.Name))
-                .ForMember(dto => dto.SubCategory, opt => opt.MapFrom(x => x.SubCategory.Name))
-                .ForMember(dto => dto.Category, opt => opt.MapFrom(x => x.SubCategory.Category.Name))
-            .MaxDepth(1)
-            .ReverseMap();
-
-            #endregion
 
             #region Types profiles
 
@@ -79,6 +69,35 @@ namespace Grammar.Core.Profiles
               .ReverseMap();
 
             #endregion
+
+            #region exercises
+
+
+            CreateMap<Exercises, AdminExerciseModel>()
+                .ForMember(dto => dto.Type, opt => opt.MapFrom(x => x.Type.Name.ToString()))
+                .ForMember(dto => dto.SubCategory, opt => opt.MapFrom(x => x.SubCategory.Name.ToString()))
+                .ForMember(dto => dto.Category, opt => opt.MapFrom(x => x.SubCategory.Category.Name.ToString()))
+            .MaxDepth(1);
+
+            CreateMap<Exercises, AdminExerciseModel>()
+             .MaxDepth(1)
+             .ReverseMap();
+
+
+            CreateMap<AdminExerciseCreateModel, Exercises>()
+            .MaxDepth(1)
+            .ReverseMap();
+
+            CreateMap<AdminCreateQuestionModel, Questions>()
+              .MaxDepth(1)
+              .ReverseMap();
+
+
+            CreateMap<AdminCreateAnswerModel, Answers>()
+            .MaxDepth(1)
+            .ReverseMap();
+            #endregion
+
 
         }
     }

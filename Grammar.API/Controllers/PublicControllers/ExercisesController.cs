@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Grammar.Data.Interfaces.Admin.Interfaces;
+using Grammar.Data.Models.Admin.Models.Exercises;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Grammar.API.Controllers.PublicControllers
@@ -28,6 +29,25 @@ namespace Grammar.API.Controllers.PublicControllers
                 return BadRequest("სავარჯიშოები არ მოიძებნა");
             }
             return Ok(model);
+        }
+
+        // action for add words
+        [HttpPost]
+        [Route("CreateExercise")]
+        public async Task<IActionResult> CreateExerciseAsync([FromBody] AdminExerciseCreateModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var isSuccessful = await _exercisesServices.CreateExercisesAsync(model);
+                if (isSuccessful)
+                    return Ok("სიტყვა წარმატებით დაემატა");
+            else
+                    return BadRequest("შეცდომა სავარჯიშოს დამატებაში");
+            }
+            else
+            {
+                return BadRequest("შეცდომა სიტყვის დამატებაში");
+            }
         }
     }
 }

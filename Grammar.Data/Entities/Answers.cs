@@ -16,7 +16,7 @@ namespace Grammar.Data.Entities
         public string Text { get; set; }
 
         [Required]
-        public bool IsCorrect { get; set; }
+        public bool IsCorrect { get; set; } = false;
 
         [Required]
         public int QuestionId { get; set; }

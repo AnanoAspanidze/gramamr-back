@@ -18,6 +18,13 @@ namespace Grammar.Core.Admin.Services
             _context = context;
         }
 
+        private async Task<bool> CheckIfDescriptionExsit(string descr)
+        {
+            var checkIfDescriptionExist = await _context.Exercises.
+                 FirstOrDefaultAsync(e => e.Description == descr) == null ? true : false;
+            return checkIfDescriptionExist;
+        }
+
         public async Task<IEnumerable<AdminExerciseModel>> GetAllExercisesAsync()
         {
 
@@ -28,9 +35,50 @@ namespace Grammar.Core.Admin.Services
             var result = Mapping.Mapper.Map<IEnumerable<AdminExerciseModel>>(exercises);
 
             return await Task.FromResult(result);
-
+            
         }
 
+       public async Task<bool> CreateExercisesAsync(AdminExerciseCreateModel model)
+        {
+            if (await CheckIfDescriptionExsit(model.Description))
+                {
+                var newExercise = Mapping.Mapper.Map<Exercises>(model);
+                newExercise.UserId = 1;
+                newExercise.Date = DateTime.Now; 
+                await _context.Exercises.AddAsync(newExercise);
+                await _context.SaveChangesAsync();
 
+
+                foreach (var quest in model.Questions)
+                {
+                    await AddQuestionsAsync(newExercise.Id, quest);
+                }
+                return true;
+            }
+                return false;
+        }
+
+        private async Task AddQuestionsAsync(int exerciseId, AdminCreateQuestionModel model)
+        {
+                var newQuestion = Mapping.Mapper.Map<Questions>(model);
+                newQuestion.ExerciseId = exerciseId;
+                await _context.Questions.AddAsync(newQuestion);
+                await _context.SaveChangesAsync();
+
+                foreach(var answ in model.Answers)
+                {
+                    await AddAnswersAsync(newQuestion.Id,answ);
+                }
+        }
+
+        private async Task AddAnswersAsync(int questionId, AdminCreateAnswerModel model)
+        {
+
+            var newAnswers = Mapping.Mapper.Map<Answers>(model);
+            newAnswers.QuestionId = questionId;
+
+            await _context.Answers.AddAsync(newAnswers);
+            await _context.SaveChangesAsync();
+        }
     }
 }

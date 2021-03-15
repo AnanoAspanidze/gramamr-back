@@ -15,7 +15,6 @@ C:\Users\Ika\Documents\GitHub\gramamr-back\Grammar.Data\bin\Debug\netcoreapp3.1\
 C:\Users\Ika\Documents\GitHub\gramamr-back\Grammar.Data\bin\Debug\netcoreapp3.1\Grammar.Data.runtimeconfig.dev.json
 C:\Users\Ika\Documents\GitHub\gramamr-back\Grammar.Data\bin\Debug\netcoreapp3.1\Grammar.Data.dll
 C:\Users\Ika\Documents\GitHub\gramamr-back\Grammar.Data\bin\Debug\netcoreapp3.1\Grammar.Data.pdb
-C:\Users\Ika\Documents\GitHub\gramamr-back\Grammar.Data\obj\Debug\netcoreapp3.1\Grammar.Data.csprojAssemblyReference.cache
 C:\Users\Ika\Documents\GitHub\gramamr-back\Grammar.Data\obj\Debug\netcoreapp3.1\Grammar.Data.AssemblyInfoInputs.cache
 C:\Users\Ika\Documents\GitHub\gramamr-back\Grammar.Data\obj\Debug\netcoreapp3.1\Grammar.Data.AssemblyInfo.cs
 C:\Users\Ika\Documents\GitHub\gramamr-back\Grammar.Data\obj\Debug\netcoreapp3.1\Grammar.Data.csproj.CoreCompileInputs.cache

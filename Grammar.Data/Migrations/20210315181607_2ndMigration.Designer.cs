@@ -4,14 +4,16 @@ using Grammar.Data.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Grammar.Data.Migrations
 {
     [DbContext(typeof(GrammarDbContext))]
-    partial class GrammarDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210315181607_2ndMigration")]
+    partial class _2ndMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

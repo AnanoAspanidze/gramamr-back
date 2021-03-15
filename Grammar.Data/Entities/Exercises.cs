@@ -21,7 +21,7 @@ namespace Grammar.Data.Entities
         public bool IsSummaryExercise { get; set; }
 
         [Required]
-        public bool IsActive { get; set; }
+        public bool IsActive { get; set; } = true;
 
         //[Required]
         public DateTime Date { get; set; }

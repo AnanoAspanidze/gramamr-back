@@ -35,6 +35,9 @@ namespace Grammar.Data.Entities
         public string Password { get; set; }
 
         [Required]
+        public bool IsActive { get; set; } = true;
+
+        [Required]
         public int RoleId { get; set; }
 
         [ForeignKey("RoleId")]

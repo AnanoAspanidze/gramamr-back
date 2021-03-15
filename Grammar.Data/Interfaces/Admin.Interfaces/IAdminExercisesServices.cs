@@ -9,5 +9,7 @@ namespace Grammar.Data.Interfaces.Admin.Interfaces
    public interface IAdminExercisesServices
     {
         Task<IEnumerable<AdminExerciseModel>> GetAllExercisesAsync();
+
+        Task<bool> CreateExercisesAsync(AdminExerciseCreateModel model);
     }
 }

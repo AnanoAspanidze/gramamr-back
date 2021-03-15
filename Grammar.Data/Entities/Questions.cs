@@ -16,14 +16,14 @@ namespace Grammar.Data.Entities
         public string Text { get; set; }
 
         [Required]
-        public bool IsActive { get; set; }
+        public bool IsActive { get; set; }=true;
 
         public string WrongAnswerText { get; set; }
 
         public string RightAnswerText { get; set; }
 
         [Required]
-        public int ExerciseId { get; set; }
+        public int ExerciseId { get; set; } 
 
         [ForeignKey("ExerciseId")]
         public virtual Exercises Exercise { get; set; }
