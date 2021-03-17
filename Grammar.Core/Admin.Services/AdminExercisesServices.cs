@@ -7,6 +7,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using System.Linq;
+using Grammar.Data.Models.Admin.Models.Exercises.Quersions;
+using Grammar.Data.Models.Admin.Models.Exercises.Answers;
 
 namespace Grammar.Core.Admin.Services
 {
@@ -24,6 +27,16 @@ namespace Grammar.Core.Admin.Services
                  FirstOrDefaultAsync(e => e.Description == descr) == null ? true : false;
             return checkIfDescriptionExist;
         }
+
+        public async Task<AdminExerciseDetailsModel> ExerciseDetailsAsync(int itemId)
+        {
+            var exercise = await _context.Exercises.Where(e=>e.Id==itemId)
+               .Include(e => e.Questions)
+               .ThenInclude(e => e.Answers).FirstOrDefaultAsync();
+            var result = Mapping.Mapper.Map<AdminExerciseDetailsModel> (exercise);
+            return result;
+        }
+
 
         public async Task<IEnumerable<AdminExerciseModel>> GetAllExercisesAsync()
         {
@@ -80,5 +93,33 @@ namespace Grammar.Core.Admin.Services
             await _context.Answers.AddAsync(newAnswers);
             await _context.SaveChangesAsync();
         }
+
+        public async Task<bool> EdiExerciseAsync(AdminExerciseEditModel model)
+        {
+            var exercise = await _context.Exercises.Where(e => e.Id == model.Id)
+              .Include(e => e.Questions)
+              .ThenInclude(e => e.Answers).FirstOrDefaultAsync();
+            if (exercise != null)
+            {
+
+                Mapping.Mapper.Map(model, exercise);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            else
+                return false;
+        }
+
+        private async Task EdiQuestionsAsync(Exercises exercises, AdminExerciseEditModel model)
+        {
+            var selectedQuestionsId = model.Questions;
+            var oldQuestionsId = exercises.Questions.AsEnumerable();
+            var deletedQuestionsId = selectedQuestionsId.Where(f => !oldQuestionsId.Any(e=>e.Id == f.Id)).ToList();
+            var newQuestionsId = oldQuestionsId.Where(f => !selectedQuestionsId.Any(e => e.Id == f.Id)).ToList();
+
+            //var newQuesion = model.Questions.Where(e => newQuestionsId.Any(j => e.Id == j)).ToList();
+
+        }
     }
+
 }

@@ -18,7 +18,7 @@ C:\Users\Ika\Documents\GitHub\gramamr-back\Grammar.Core\bin\Debug\netcoreapp3.1\
 C:\Users\Ika\Documents\GitHub\gramamr-back\Grammar.Core\obj\Debug\netcoreapp3.1\Grammar.Core.csprojAssemblyReference.cache
 C:\Users\Ika\Documents\GitHub\gramamr-back\Grammar.Core\obj\Debug\netcoreapp3.1\Grammar.Core.AssemblyInfoInputs.cache
 C:\Users\Ika\Documents\GitHub\gramamr-back\Grammar.Core\obj\Debug\netcoreapp3.1\Grammar.Core.AssemblyInfo.cs
-C:\Users\Ika\Documents\GitHub\gramamr-back\Grammar.Core\obj\Debug\netcoreapp3.1\Grammar.Core.csproj.CoreCompileInputs.cache
 C:\Users\Ika\Documents\GitHub\gramamr-back\Grammar.Core\obj\Debug\netcoreapp3.1\Grammar.Core.csproj.CopyComplete
 C:\Users\Ika\Documents\GitHub\gramamr-back\Grammar.Core\obj\Debug\netcoreapp3.1\Grammar.Core.dll
 C:\Users\Ika\Documents\GitHub\gramamr-back\Grammar.Core\obj\Debug\netcoreapp3.1\Grammar.Core.pdb
+C:\Users\Ika\Documents\GitHub\gramamr-back\Grammar.Core\obj\Debug\netcoreapp3.1\Grammar.Core.csproj.CoreCompileInputs.cache

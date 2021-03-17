@@ -11,5 +11,9 @@ namespace Grammar.Data.Interfaces.Admin.Interfaces
         Task<IEnumerable<AdminExerciseModel>> GetAllExercisesAsync();
 
         Task<bool> CreateExercisesAsync(AdminExerciseCreateModel model);
+
+        Task<AdminExerciseDetailsModel> ExerciseDetailsAsync(int itemId);
+
+        Task<bool> EdiExerciseAsync(AdminExerciseEditModel model);
     }
 }

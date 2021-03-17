@@ -14,7 +14,7 @@ namespace Grammar.Data.Entities
 
         [MaxLength(50)]
         [Required]
-        public string Name { get; set; }
+        public string Title { get; set; }
 
 
         public virtual ICollection<Exercises> Exercises { get; set; }

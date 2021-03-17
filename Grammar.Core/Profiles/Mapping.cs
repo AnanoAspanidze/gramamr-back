@@ -2,6 +2,8 @@
 using Grammar.Data.Entities;
 using Grammar.Data.Models.Admin.Models;
 using Grammar.Data.Models.Admin.Models.Exercises;
+using Grammar.Data.Models.Admin.Models.Exercises.Answers;
+using Grammar.Data.Models.Admin.Models.Exercises.Quersions;
 using Grammar.Data.Models.Admin.Models.SubCategories;
 using System;
 using System.Collections.Generic;
@@ -17,7 +19,7 @@ namespace Grammar.Core.Profiles
             {
                 // This line ensures that internal properties are also mapped over.
                 cfg.ShouldMapProperty = p => p.GetMethod.IsPublic || p.GetMethod.IsAssembly;
-                //cfg.ForAllMaps((typeMap, mappingExpression) => mappingExpression.MaxDepth(1));
+                cfg.ForAllMaps((typeMap, mappingExpression) => mappingExpression.MaxDepth(1));
                 cfg.AddProfile<MappingProfile>();
 
             });
@@ -74,28 +76,32 @@ namespace Grammar.Core.Profiles
 
 
             CreateMap<Exercises, AdminExerciseModel>()
-                .ForMember(dto => dto.Type, opt => opt.MapFrom(x => x.Type.Name.ToString()))
-                .ForMember(dto => dto.SubCategory, opt => opt.MapFrom(x => x.SubCategory.Name.ToString()))
-                .ForMember(dto => dto.Category, opt => opt.MapFrom(x => x.SubCategory.Category.Name.ToString()))
-            .MaxDepth(1);
+                .ForMember(dto => dto.Type, opt => opt.MapFrom(x => x.Type.Title))
+                .ForMember(dto => dto.SubCategory, opt => opt.MapFrom(x => x.SubCategory.Name))
+                .ForMember(dto => dto.Category, opt => opt.MapFrom(x => x.SubCategory.Category.Name));
 
             CreateMap<Exercises, AdminExerciseModel>()
-             .MaxDepth(1)
              .ReverseMap();
 
 
             CreateMap<AdminExerciseCreateModel, Exercises>()
-            .MaxDepth(1)
             .ReverseMap();
 
             CreateMap<AdminCreateQuestionModel, Questions>()
-              .MaxDepth(1)
               .ReverseMap();
 
 
             CreateMap<AdminCreateAnswerModel, Answers>()
-            .MaxDepth(1)
             .ReverseMap();
+
+            CreateMap<Exercises, AdminExerciseDetailsModel>()
+                .ReverseMap();
+
+            CreateMap<Questions, AdminQuestionDetailsModel>()
+                .ReverseMap();
+
+            CreateMap<Answers, AdminAnswerDetailsModel>()
+                .ReverseMap();
             #endregion
 
 
